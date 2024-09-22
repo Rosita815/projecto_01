@@ -14,7 +14,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <router-link class="nav-link" to="/">Inicio</router-link>
           </li>
@@ -46,3 +46,29 @@
     </div>
   </nav>
 </template>
+
+<script>
+import { onMounted } from 'vue';
+import Dropdown from 'bootstrap/js/dist/dropdown';
+
+export default {
+  name: "NavBar",
+  mounted() {
+    onMounted(() => {
+      const dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+      dropdownElementList.map(function (dropdownToggleEl) {
+        return new Dropdown(dropdownToggleEl);
+      });
+    });
+  }
+};
+
+</script>
+
+<style scoped>
+/* Optional: Additional styles */
+.navbar-brand {
+  font-weight: bold;
+}
+</style>
+
