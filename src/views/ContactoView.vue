@@ -85,3 +85,11 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.container{
+  background-color: #9ff86b;
+  padding: 40px;
+} 
+
+</style>

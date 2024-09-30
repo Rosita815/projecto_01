@@ -1,7 +1,9 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light ">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Video Juegos</a>
+      <a class="navbar-brand" href="/">
+        <img :src="logo" alt="logo" class="img-fluid" style="max-height: 50px;">
+      </a>
       <button
         class="navbar-toggler"
         type="button"
@@ -32,10 +34,10 @@
             >
               Video Juegos
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><router-link class="dropdown-item" to="/videojuegos/playstation">PlayStation 5</router-link></li>
-              <li><router-link class="dropdown-item" to="/videojuegos/xbox">Xbox</router-link></li>
-              <li><router-link class="dropdown-item" to="/videojuegos/nintendo">Nintendo</router-link></li>
+            <ul class="dropdown-menu color" aria-labelledby="navbarDropdown">
+              <li><router-link class="dropdown-item" to="/playStation5">PlayStation 5</router-link></li>
+              <li><router-link class="dropdown-item" to="/xbox">Xbox</router-link></li>
+              <li><router-link class="dropdown-item" to="/nintendo">Nintendo</router-link></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -50,8 +52,16 @@
 <script>
 import { onMounted } from 'vue';
 import Dropdown from 'bootstrap/js/dist/dropdown';
+import LogoJuego from '@/assets/LogoJuego.png';
 
 export default {
+
+  data() {
+    return {
+      logo: LogoJuego
+    };
+  },
+
   name: "NavBar",
   mounted() {
     onMounted(() => {
@@ -66,9 +76,15 @@ export default {
 </script>
 
 <style scoped>
-/* Optional: Additional styles */
+.navbar, .color{
+  background-color: #00eaff;
+}
 .navbar-brand {
   font-weight: bold;
+}
+
+li {
+  font-size: 25px;
 }
 </style>
 
